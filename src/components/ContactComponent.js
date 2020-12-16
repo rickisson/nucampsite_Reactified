@@ -38,7 +38,7 @@ class Contact extends Component{
 
 
    //JSON.stringify converts objects to a string
-    handleSubmit(values) {
+        handleSubmit(values) {
         ///console.log('Current state is: ' + JSON.stringify(values));
         //alert('Current state is: ' + JSON.stringify(values));
         this.props.resetFeedbackForm();

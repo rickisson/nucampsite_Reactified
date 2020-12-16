@@ -201,7 +201,7 @@ export const fetchPartners = () => dispatch => {
         .catch(error => dispatch(partnersFailed(error.message)));
 };
 
-
+// For posting feedback to comments
 export const postFeedback = (feedback) => dispatch => {
 
     const newFeedback = {...feedback};
@@ -227,12 +227,19 @@ export const postFeedback = (feedback) => dispatch => {
         const errMess = new Error(error.message);
         throw errMess;
     }
-  )
+    
+   
+    )
+    .then(response => response.json())
+    .then(response =>
+    alert('Thank you for your feedback\n' + JSON.stringify(response))
+   )
   
-  .then(response => response.json())
-  .catch(error => {
-      console.log('post comment', error.message);
-      alert("Thank you for your feedback!" + newFeedback);
+      
+    .catch(error => {
+     console.log('Feedback Error', error.message);
+    alert('Your feedback could not be posted\nError: ' + error.message);
+      
   });
         
        
